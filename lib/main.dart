@@ -81,13 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // floatingActionButtonLocation:
-      //     FloatingActionButtonLocation.miniCenterFloat,
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _checkPalindrome,
-      //   tooltip: 'Check',
-      //   child: const Icon(Icons.animation),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
