@@ -1,6 +1,5 @@
+import 'package:check_palindrome/presentation/widgets/home_page_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:palindrom/presentation/widgets/home_page_screen.dart';
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

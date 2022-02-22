@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:palindrom/domain/check_palindrome_usecase.dart';
+
+import '../../domain/check_palindrome.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -13,8 +14,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Palindrome palindrome = Palindrome();
 
-  Widget _inputWidget() =>
-      Column(
+  Widget _inputWidget() => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextField(
@@ -38,8 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       );
 
-  Widget _showButtonWidget() =>
-      FloatingActionButton(
+  Widget _showButtonWidget() => FloatingActionButton(
         onPressed: () {
           setState(() {
             palindrome.data.answer = palindrome.showAnswer();

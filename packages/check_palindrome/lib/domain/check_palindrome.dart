@@ -1,4 +1,6 @@
-import 'package:palindrom/data/text_data.dart';
+library check_palindrome;
+
+import '../data/text_data.dart';
 
 class Palindrome {
   DataPalindrome data = DataPalindrome();
@@ -23,3 +25,4 @@ class Palindrome {
     return _checkPalindrome(data.text, first, last);
   }
 }
+
