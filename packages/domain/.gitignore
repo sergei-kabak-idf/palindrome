@@ -26,7 +26,6 @@
 **/doc/api/
 .dart_tool/
 .packages
-.metadata
 build/
 /.metadata
 /CHANGELOG.md
