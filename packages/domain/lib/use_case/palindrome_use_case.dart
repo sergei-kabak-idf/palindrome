@@ -8,7 +8,7 @@ class Palindrome implements UseCase {
   int get last => text.length - 1;
 
   bool _checkPalindrome(String text, int first, int last) {
-    if (text.isEmpty | text.contains(RegExp(r'[0-9]'))) {
+    if (text.isEmpty | text.contains(RegExp(r'[0-9,^\s*]'))) {
       return false;
     } else if (first == last) {
       return true;
