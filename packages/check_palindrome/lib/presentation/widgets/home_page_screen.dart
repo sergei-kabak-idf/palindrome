@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               hintText: "Typing palindrome",
             ),
-            onSubmitted: (String textTyping) {
+            onSubmitted: (textTyping) {
               setState(() {
                 palindrome.data.text = textTyping;
               });
