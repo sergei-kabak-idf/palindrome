@@ -1,5 +1,5 @@
-import 'package:check_palindrome/presentation/widgets/home_page_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/screen/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Palindrome'),
+      home: const HomePage(),
     );
   }
 }

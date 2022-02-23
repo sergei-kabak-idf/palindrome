@@ -1,9 +1,11 @@
-library check_palindrome;
+import 'package:domain/use_case/use_case.dart';
 
-import '../data/text_data.dart';
+class Palindrome implements UseCase {
+  String text = '';
+  bool answer = false;
+  int first = 0;
 
-class Palindrome {
-  DataPalindrome data = DataPalindrome();
+  int get last => text.length - 1;
 
   bool _checkPalindrome(String text, int first, int last) {
     if (text.isEmpty | text.contains(RegExp(r'[0-9]'))) {
@@ -18,11 +20,8 @@ class Palindrome {
     return true;
   }
 
-  bool showAnswer() {
-    int first = 0;
-    int last = data.text.length - 1;
-
-    return _checkPalindrome(data.text, first, last);
+  @override
+  bool call() {
+    return _checkPalindrome(text, first, last);
   }
 }
-

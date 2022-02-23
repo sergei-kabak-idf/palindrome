@@ -29,8 +29,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  check_palindrome:
-    path: packages/check_palindrome
+  domain:
+    path: /Users/kabak/StudioProjects/palindrome/packages/domain
+  presentation:
+    path: /Users/kabak/StudioProjects/palindrome/packages/presentation
 
 
   # The following adds the Cupertino Icons font to your application.
