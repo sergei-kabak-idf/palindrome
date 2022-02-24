@@ -10,40 +10,41 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Palindrome palindrome = Palindrome();
+  String text = '';
+  bool answer = false;
 
   Widget _inputWidget() => Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: <Widget>[
-      TextField(
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(),
-            borderRadius: BorderRadius.all(
-              Radius.circular(50.0),
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          TextField(
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(
+                borderSide: BorderSide(),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50.0),
+                ),
+              ),
+              hintText: "Typing palindrome",
             ),
+            onSubmitted: (textTyping) {
+              setState(() {
+                text = textTyping;
+              });
+            },
+            textAlign: TextAlign.center,
           ),
-          hintText: "Typing palindrome",
-        ),
-        onSubmitted: (textTyping) {
-          setState(() {
-            palindrome.text = textTyping;
-          });
-        },
-        textAlign: TextAlign.center,
-      ),
-      Text(palindrome.answer.toString()),
-    ],
-  );
+          Text(answer.toString()),
+        ],
+      );
 
   Widget _showButtonWidget() => FloatingActionButton(
-    onPressed: () {
-      setState(() {
-        palindrome.answer = palindrome.call();
-      });
-    },
-    child: const Icon(Icons.search),
-  );
-
+        onPressed: () {
+          setState(() {
+            answer = palindrome(text, 0, text.length);
+          });
+        },
+        child: const Icon(Icons.search),
+      );
 
   @override
   Widget build(BuildContext context) {

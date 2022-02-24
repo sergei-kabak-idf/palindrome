@@ -1,3 +1,3 @@
 abstract class UseCase {
-  bool call();
+  bool call(String text, int first, int last);
 }

@@ -29,8 +29,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  domain:
-    path: /Users/kabak/StudioProjects/palindrome/packages/domain
   presentation:
     path: /Users/kabak/StudioProjects/palindrome/packages/presentation
 

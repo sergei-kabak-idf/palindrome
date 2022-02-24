@@ -1,12 +1,6 @@
 import 'package:domain/use_case/use_case.dart';
 
 class Palindrome implements UseCase {
-  String text = '';
-  bool answer = false;
-  int first = 0;
-
-  int get last => text.length - 1;
-
   bool _checkPalindrome(String text, int first, int last) {
     if (text.isEmpty | text.contains(RegExp(r'[0-9,^\s*]'))) {
       return false;
@@ -21,7 +15,7 @@ class Palindrome implements UseCase {
   }
 
   @override
-  bool call() {
-    return _checkPalindrome(text, first, last);
+  bool call(text, first, last) {
+    return _checkPalindrome(text, first, last - 1);
   }
 }
