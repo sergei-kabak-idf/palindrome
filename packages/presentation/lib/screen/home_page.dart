@@ -10,13 +10,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Palindrome palindrome = Palindrome();
-  String text = '';
   bool answer = false;
+  final _controller = TextEditingController();
 
   Widget _inputWidget() => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextField(
+            controller: _controller,
             decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(),
@@ -26,11 +27,6 @@ class _HomePageState extends State<HomePage> {
               ),
               hintText: "Typing palindrome",
             ),
-            onSubmitted: (textTyping) {
-              setState(() {
-                text = textTyping;
-              });
-            },
             textAlign: TextAlign.center,
           ),
           Text(answer.toString()),
@@ -40,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   Widget _showButtonWidget() => FloatingActionButton(
         onPressed: () {
           setState(() {
-            answer = palindrome(text, 0, text.length);
+            answer = palindrome(_controller.text, 0, _controller.text.length);
           });
         },
         child: const Icon(Icons.search),

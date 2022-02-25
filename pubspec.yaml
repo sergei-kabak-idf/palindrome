@@ -30,7 +30,10 @@ dependencies:
   flutter:
     sdk: flutter
   presentation:
-    path: /Users/kabak/StudioProjects/palindrome/packages/presentation
+    path: packages/presentation
+  domain:
+    path: packages/domain
+
 
 
   # The following adds the Cupertino Icons font to your application.

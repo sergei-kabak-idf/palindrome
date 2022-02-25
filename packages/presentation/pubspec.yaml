@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   domain:
-    path: /Users/kabak/StudioProjects/palindrome/packages/domain
+    path: ../domain
 
 dev_dependencies:
   flutter_test:
