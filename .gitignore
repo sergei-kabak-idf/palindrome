@@ -863,3 +863,13 @@ Temporary Items
 # Archives         - https://github.com/github/gitignore/blob/main/Global/Archives.gitignore
 # Backup           - https://github.com/github/gitignore/blob/main/Global/Backup.gitignore
 # JEnv             - https://github.com/github/gitignore/blob/main/Global/JEnv.gitignore
+/packages/presentation/.metadata
+/packages/presentation/CHANGELOG.md
+/packages/presentation/pubspec.lock
+/packages/presentation/README.md
+/packages/presentation/LICENSE
+/packages/domain/LICENSE
+/packages/domain/pubspec.lock
+/packages/domain/README.md
+/packages/domain/CHANGELOG.md
+/packages/domain/.metadata
