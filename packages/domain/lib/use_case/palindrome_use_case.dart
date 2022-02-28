@@ -1,6 +1,6 @@
 import 'package:domain/use_case/use_case.dart';
 
-class Palindrome implements UseCase {
+class PalindromeUseCaseImpl implements UseCase {
   bool _checkPalindrome(String text, int first, int last) {
     if (text.isEmpty | text.contains(RegExp(r'[0-9,^\s*]'))) {
       return false;
