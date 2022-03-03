@@ -52,9 +52,10 @@ analysis_benchmark.json
 .flutter-plugins
 .flutter-plugins-dependencies
 **/generated_plugin_registrant.dart
+*.lock
 .packages
 .metadata
-*.lock
+
 .pub-cache/
 .pub/
 build/
