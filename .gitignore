@@ -54,7 +54,7 @@ analysis_benchmark.json
 **/generated_plugin_registrant.dart
 .packages
 .metadata
-/Users/kabak/StudioProjects/palindrome/pubspec.lock
+*.lock
 .pub-cache/
 .pub/
 build/
