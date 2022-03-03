@@ -34,7 +34,7 @@ class PalindromeBloc extends Bloc {
 
   void _listenEvent(HomeBlocEvent event) {
     switch (event) {
-      case HomeBlocEvent.checkPalindrome:
+      case HomeBlocEvent.CHECK_PALINDROME:
         data.isPalindrome = palindrome.call(
             _controllerText.text, 0, _controllerText.text.length);
         _inputData.add(data);

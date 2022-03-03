@@ -1,1 +1,1 @@
-enum HomeBlocEvent { checkPalindrome}
+enum HomeBlocEvent { CHECK_PALINDROME }

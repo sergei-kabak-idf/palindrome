@@ -1,6 +1,6 @@
 class PalindromeData{
-  bool? isPalindrome;
-  String inputPalindrome = '';
+  bool isPalindrome;
+  String inputPalindrome;
 
   PalindromeData.init() : isPalindrome = false, inputPalindrome = '';
 

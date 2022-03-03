@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _showButtonWidget() => FloatingActionButton(
         onPressed: () {
-          bloc.inputCheckPalindrome.add(HomeBlocEvent.checkPalindrome);
+          bloc.inputCheckPalindrome.add(HomeBlocEvent.CHECK_PALINDROME);
         },
         child: const Icon(Icons.search),
       );
