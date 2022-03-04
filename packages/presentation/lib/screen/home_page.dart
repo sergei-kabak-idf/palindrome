@@ -14,9 +14,31 @@ class _HomePageState extends State<HomePage> {
   final HomeBloc bloc = HomeBloc(PalindromeUseCaseImpl());
 
   @override
+  Widget build(BuildContext context) => StreamPlatformStackContent(
+        context: context,
+        dataStream: bloc.dataStream,
+        setText: bloc.setString,
+        checkPalindrome: bloc.checkPalindrome,
+      );
+}
+
+class StreamPlatformStackContent extends StatelessWidget {
+  final Stream<PalindromeData> dataStream;
+  final Function(String) setText;
+  final Function checkPalindrome;
+
+  const StreamPlatformStackContent({
+    Key? key,
+    required BuildContext context,
+    required this.dataStream,
+    required this.setText,
+    required this.checkPalindrome,
+  }) : super(key: key);
+
+  @override
   Widget build(BuildContext context) => Scaffold(
         body: StreamBuilder(
-          stream: bloc.dataStream,
+          stream: dataStream,
           builder:
               (BuildContext context, AsyncSnapshot<PalindromeData?> snapshot) =>
                   _inputWidget(snapshot),
@@ -25,11 +47,16 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: _showButtonWidget(),
       );
 
+  Widget _showButtonWidget() => FloatingActionButton(
+        onPressed: () => checkPalindrome(),
+        child: const Icon(Icons.search),
+      );
+
   Widget _inputWidget(AsyncSnapshot<PalindromeData?> snapshot) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextFormField(
-            onChanged: bloc.setString,
+            onChanged: setText,
             decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(),
@@ -43,10 +70,5 @@ class _HomePageState extends State<HomePage> {
           ),
           Text(snapshot.data?.isPalindrome.toString() ?? 'null'),
         ],
-      );
-
-  Widget _showButtonWidget() => FloatingActionButton(
-        onPressed: () => bloc.checkPalindrome(),
-        child: const Icon(Icons.search),
       );
 }
