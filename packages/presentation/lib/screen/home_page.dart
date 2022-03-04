@@ -1,8 +1,7 @@
+import 'package:domain/use_case/palindrome_use_case.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/screen/bloc/palindrome_bloc.dart';
-import 'package:presentation/screen/bloc/palindrome_data.dart';
-import 'package:provider/provider.dart';
-import 'bloc/palindrome_event.dart';
+import 'package:presentation/screen/home_bloc.dart';
+import 'package:presentation/screen/home_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,31 +11,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final PalindromeBloc bloc = PalindromeBloc();
+  final HomeBloc bloc = HomeBloc(PalindromeUseCaseImpl());
 
   @override
-  Widget build(BuildContext context) {
-    return Provider.value(
-      value: bloc,
-      child: Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         body: StreamBuilder(
-          stream: bloc.outputData,
+          stream: bloc.dataStream,
           builder:
-              (BuildContext context, AsyncSnapshot<PalindromeData?> snapshot) {
-            return _inputWidget(snapshot);
-          },
+              (BuildContext context, AsyncSnapshot<PalindromeData?> snapshot) =>
+                  _inputWidget(snapshot),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: _showButtonWidget(),
-      ),
-    );
-  }
+      );
 
   Widget _inputWidget(AsyncSnapshot<PalindromeData?> snapshot) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          TextField(
-            controller: bloc.controllerText,
+          TextFormField(
+            onChanged: bloc.setString,
             decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(),
@@ -53,9 +46,7 @@ class _HomePageState extends State<HomePage> {
       );
 
   Widget _showButtonWidget() => FloatingActionButton(
-        onPressed: () {
-          bloc.inputCheckPalindrome.add(HomeBlocEvent.CHECK_PALINDROME);
-        },
+        onPressed: () => bloc.checkPalindrome(),
         child: const Icon(Icons.search),
       );
 }
