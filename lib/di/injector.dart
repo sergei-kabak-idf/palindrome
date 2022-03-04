@@ -1,1 +1,1 @@
-void initInjector() {}
+Future<void> initInjector() async {}
