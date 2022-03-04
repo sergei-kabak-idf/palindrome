@@ -1,5 +1,8 @@
-import 'package:domain/use_case/palindrome_use_case.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/screen/bloc/palindrome_bloc.dart';
+import 'package:presentation/screen/bloc/palindrome_data.dart';
+import 'package:provider/provider.dart';
+import 'bloc/palindrome_event.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,15 +12,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Palindrome palindrome = Palindrome();
-  bool answer = false;
-  final _controller = TextEditingController();
+  final PalindromeBloc bloc = PalindromeBloc();
 
-  Widget _inputWidget() => Column(
+  @override
+  Widget build(BuildContext context) {
+    return Provider.value(
+      value: bloc,
+      child: Scaffold(
+        body: StreamBuilder(
+          stream: bloc.outputData,
+          builder:
+              (BuildContext context, AsyncSnapshot<PalindromeData?> snapshot) {
+            return _inputWidget(snapshot);
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: _showButtonWidget(),
+      ),
+    );
+  }
+
+  Widget _inputWidget(AsyncSnapshot<PalindromeData?> snapshot) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextField(
-            controller: _controller,
+            controller: bloc.controllerText,
             decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(),
@@ -29,25 +48,14 @@ class _HomePageState extends State<HomePage> {
             ),
             textAlign: TextAlign.center,
           ),
-          Text(answer.toString()),
+          Text(snapshot.data?.isPalindrome.toString() ?? 'null'),
         ],
       );
 
   Widget _showButtonWidget() => FloatingActionButton(
         onPressed: () {
-          setState(() {
-            answer = palindrome(_controller.text, 0, _controller.text.length);
-          });
+          bloc.inputCheckPalindrome.add(HomeBlocEvent.CHECK_PALINDROME);
         },
         child: const Icon(Icons.search),
       );
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _inputWidget(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: _showButtonWidget(),
-    );
-  }
 }
