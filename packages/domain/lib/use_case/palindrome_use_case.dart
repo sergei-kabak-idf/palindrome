@@ -15,4 +15,8 @@ class PalindromeUseCaseImpl implements UseCase {
     }
     return true;
   }
+
+  @override
+  void dispose() {
+  }
 }
