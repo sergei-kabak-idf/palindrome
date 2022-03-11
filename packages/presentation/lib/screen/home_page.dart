@@ -17,21 +17,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => StreamPlatformStackContent(
         context: context,
         dataStream: bloc.dataStream,
-        setText: bloc.setTextPalindrome,
+        setTextPalindrome: bloc.setTextPalindrome,
         checkPalindrome: bloc.checkPalindrome,
       );
 }
 
 class StreamPlatformStackContent extends StatelessWidget {
   final Stream<PalindromeData> dataStream;
-  final Function(String) setText;
+  final void Function(String) setTextPalindrome;
   final Function checkPalindrome;
 
   const StreamPlatformStackContent({
     Key? key,
     required BuildContext context,
     required this.dataStream,
-    required this.setText,
+    required this.setTextPalindrome,
     required this.checkPalindrome,
   }) : super(key: key);
 
@@ -48,7 +48,7 @@ class StreamPlatformStackContent extends StatelessWidget {
       );
 
   Widget _showButtonWidget() => FloatingActionButton(
-        onPressed: () => checkPalindrome(),
+        onPressed: () => checkPalindrome,
         child: const Icon(Icons.search),
       );
 
@@ -56,7 +56,7 @@ class StreamPlatformStackContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextFormField(
-            onChanged: setText,
+            onChanged: setTextPalindrome,
             decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(),
