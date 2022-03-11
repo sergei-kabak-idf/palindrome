@@ -10,7 +10,7 @@ abstract class HomeBloc extends Bloc {
 
   void checkPalindrome();
 
-  void setString(String text);
+  void setTextPalindrome(String text);
 }
 
 class _HomeBloc extends BlocImpl implements HomeBloc {
@@ -32,7 +32,7 @@ class _HomeBloc extends BlocImpl implements HomeBloc {
   }
 
   @override
-  void setString(String text) {
+  void setTextPalindrome(String text) {
     _screenData.inputPalindrome = text;
   }
 }

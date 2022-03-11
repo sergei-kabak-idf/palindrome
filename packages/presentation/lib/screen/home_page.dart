@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => StreamPlatformStackContent(
         context: context,
         dataStream: bloc.dataStream,
-        setText: bloc.setString,
+        setText: bloc.setTextPalindrome,
         checkPalindrome: bloc.checkPalindrome,
       );
 }
