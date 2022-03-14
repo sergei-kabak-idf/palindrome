@@ -52,7 +52,7 @@ analysis_benchmark.json
 .flutter-plugins
 .flutter-plugins-dependencies
 **/generated_plugin_registrant.dart
-*.lock
+pubspec.lock
 .packages
 .metadata
 
