@@ -1,7 +1,7 @@
-import 'package:domain/use_case/palindrome_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/screen/home_bloc.dart';
 import 'package:presentation/screen/home_data.dart';
+import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final HomeBloc bloc = HomeBloc(PalindromeUseCaseImpl());
+  final HomeBloc bloc = GetIt.I.get<HomeBloc>();
 
   @override
   Widget build(BuildContext context) => StreamPlatformStackContent(

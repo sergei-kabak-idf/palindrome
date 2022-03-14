@@ -4,9 +4,9 @@ import 'package:presentation/screen/home_data.dart';
 
 abstract class HomeBloc extends Bloc {
   factory HomeBloc(
-    PalindromeUseCaseImpl palindromeUseCaseImpl,
+      PalindromeUseCase _palindromeUseCase,
   ) =>
-      _HomeBloc(palindromeUseCaseImpl);
+      _HomeBloc(_palindromeUseCase);
 
   void checkPalindrome();
 
@@ -14,16 +14,16 @@ abstract class HomeBloc extends Bloc {
 }
 
 class _HomeBloc extends BlocImpl implements HomeBloc {
-  final PalindromeUseCaseImpl _palindromeUseCaseImpl;
+  final PalindromeUseCase _palindromeUseCase;
   final _screenData = PalindromeData.init();
 
-  _HomeBloc(this._palindromeUseCaseImpl);
+  _HomeBloc(this._palindromeUseCase);
 
   @override
   void checkPalindrome() {
     final String text = _screenData.inputPalindrome;
     final bool isPalindrome;
-    isPalindrome = _palindromeUseCaseImpl(
+    isPalindrome = _palindromeUseCase(
       text,
       0,
       text.length,
