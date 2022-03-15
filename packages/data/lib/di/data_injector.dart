@@ -7,7 +7,7 @@ void initDataModule() {
 }
 
 void _initRepositoryModule() {
-  GetIt.I.registerFactory<PalindromeRepository>(
+  GetIt.I.registerLazySingleton<PalindromeRepository>(
     PalindromeRepositoryImpl.new,
   );
 }

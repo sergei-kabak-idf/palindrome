@@ -6,7 +6,7 @@ void initDomainModule() {
 }
 
 void _initUseCaseModule() {
-  GetIt.I.registerFactory<PalindromeUseCase>(
+  GetIt.I.registerLazySingleton<PalindromeUseCase>(
     () => PalindromeUseCase(
       GetIt.I.get(),
     ),
