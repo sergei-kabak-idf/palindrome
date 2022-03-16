@@ -1,23 +1,27 @@
 import 'package:domain/use_case/palindrome_use_case.dart';
-import 'package:presentation/base/base_bloc.dart';
+import 'package:presentation/base/bloc_base.dart';
 import 'package:presentation/screen/home_data.dart';
+import 'package:injectable/injectable.dart';
 
-abstract class HomeBloc extends Bloc {
-  factory HomeBloc(
+// @singleton
+abstract class HomeBlocInterface extends Bloc {
+  @factoryMethod
+  factory HomeBlocInterface(
       PalindromeUseCase _palindromeUseCase,
   ) =>
-      _HomeBloc(_palindromeUseCase);
+      HomeBloc(_palindromeUseCase);
 
   void checkPalindrome();
 
   void setString(String text);
 }
 
-class _HomeBloc extends BlocImpl implements HomeBloc {
+
+class HomeBloc extends BlocImpl implements HomeBlocInterface {
   final PalindromeUseCase _palindromeUseCase;
   final _screenData = PalindromeData.init();
 
-  _HomeBloc(this._palindromeUseCase);
+  HomeBloc(this._palindromeUseCase);
 
   @override
   void checkPalindrome() {

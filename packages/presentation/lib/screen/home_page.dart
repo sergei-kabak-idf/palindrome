@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:presentation/base/bloc_state.dart';
 import 'package:presentation/screen/home_bloc.dart';
 import 'package:presentation/screen/home_data.dart';
-import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,9 +10,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final HomeBloc bloc = GetIt.I.get<HomeBloc>();
-
+class _HomePageState extends BlocState<HomePage, HomeBloc> {
   @override
   Widget build(BuildContext context) => StreamPlatformStackContent(
         context: context,

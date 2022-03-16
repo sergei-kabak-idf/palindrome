@@ -1,4 +1,4 @@
-import 'package:domain/repository/palindrome.dart';
+import 'package:domain/repository/domain_repository.dart';
 
 class PalindromeRepositoryImpl implements PalindromeRepository {
   @override

@@ -3,6 +3,6 @@ import 'package:palindrome/di/injector.dart';
 import 'package:presentation/app.dart';
 
 void main() {
-  initInjector();
+  configureDependencies();
   runApp(const MyApp());
 }
