@@ -35,11 +35,11 @@ class StreamPlatformStackContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: StreamBuilder(
+        body: StreamBuilder<PalindromeData>(
           stream: dataStream,
           builder:
-              (BuildContext context, AsyncSnapshot<PalindromeData?> snapshot) =>
-                  _inputWidget(snapshot),
+              (BuildContext context, snapshot) =>
+                  _inputWidget((snapshot.data?.isPalindrome).toString()),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: _showButtonWidget(),
@@ -50,7 +50,7 @@ class StreamPlatformStackContent extends StatelessWidget {
         child: const Icon(Icons.search),
       );
 
-  Widget _inputWidget(AsyncSnapshot<PalindromeData?> snapshot) => Column(
+  Widget _inputWidget(String snapshot) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           TextFormField(
@@ -66,7 +66,7 @@ class StreamPlatformStackContent extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          Text(snapshot.data?.isPalindrome.toString() ?? 'null'),
+          Text(snapshot),
         ],
       );
 }
