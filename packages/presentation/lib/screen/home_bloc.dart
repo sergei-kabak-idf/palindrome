@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 abstract class HomeBlocInterface extends Bloc {
   @factoryMethod
   factory HomeBlocInterface(
-      PalindromeUseCase _palindromeUseCase,
+      PalindromeUseCaseImpl _palindromeUseCase,
   ) =>
       HomeBloc(_palindromeUseCase);
 
@@ -18,7 +18,7 @@ abstract class HomeBlocInterface extends Bloc {
 
 
 class HomeBloc extends BlocImpl implements HomeBlocInterface {
-  final PalindromeUseCase _palindromeUseCase;
+  final PalindromeUseCaseImpl _palindromeUseCase;
   final _screenData = PalindromeData.init();
 
   HomeBloc(this._palindromeUseCase);

@@ -2,8 +2,8 @@ import 'package:data/repository/data_repository.dart';
 import 'package:domain/use_case/use_case.dart';
 
 
-class PalindromeUseCase implements UseCase {
-  PalindromeUseCase(this._palindromeRepositoryImpl);
+class PalindromeUseCaseImpl implements UseCase {
+  PalindromeUseCaseImpl(this._palindromeRepositoryImpl);
 
   final PalindromeRepositoryImpl _palindromeRepositoryImpl;
 
