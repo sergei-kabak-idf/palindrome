@@ -1,12 +1,11 @@
-import 'package:data/repository/data_repository.dart';
 import 'package:domain/use_case/use_case.dart';
 
-// @Singleton()
-// @injectable
+import '../repository/domain_repository.dart';
+
 class PalindromeUseCase implements UseCase {
   PalindromeUseCase(this._palindromeRepository);
 
-  final PalindromeRepositoryImpl _palindromeRepository;
+  final PalindromeRepository _palindromeRepository;
 
   @override
   bool call(String text, int first, int last) =>
