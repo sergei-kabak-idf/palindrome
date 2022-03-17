@@ -1,17 +1,16 @@
+import 'dart:math';
+import 'package:domain/model/palindrome_response.dart';
 import 'package:domain/repository/domain_repository.dart';
 
-class PalindromeRepositoryImpl implements PalindromeRepository {
+part 'local_check.dart';
+part 'network_check.dart';
+
+class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
   @override
-  bool checkPalindrome(String text, int first, int last) {
-    if (text.isEmpty | text.contains(RegExp(r'[0-9,^\s*]'))) {
-      return false;
-    } else if (first == last - 1) {
-      return true;
-    } else if (text[first] != text[last - 1]) {
-      return false;
-    } else if (first < last - 1) {
-      return checkPalindrome(text, first + 1, last - 1);
-    }
-    return true;
+  Future<PalindromeResponse> checkPalindrome(
+      String text, int first, int last) async {
+    return Random().nextBool()
+        ? localCheckPalindrome(text, first, last)
+        : networkCheckPalindrome(text, first, last);
   }
 }

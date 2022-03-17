@@ -1,19 +1,18 @@
 import 'package:data/repository/data_repository.dart';
-import 'package:domain/use_case/use_case.dart';
 
+part 'use_case.dart';
 
-class PalindromeUseCaseImpl implements UseCase {
-  PalindromeUseCaseImpl(this._palindromeRepositoryImpl);
+class PalindromeUseCaseImpl implements UseCase<String, Future<bool>> {
+  PalindromeUseCaseImpl(this._networkRepository);
 
-  final PalindromeRepositoryImpl _palindromeRepositoryImpl;
+  final PalindromeRepositoryImpl _networkRepository;
 
   @override
-  bool call(String text, int first, int last) =>
-      _palindromeRepositoryImpl.checkPalindrome(
-        text,
-        first,
-        last,
-      );
+  Future<bool> call(String text, int first, int last) async {
+    final response =
+        await _networkRepository.checkPalindrome(text, first, last);
+    return Future.value(response.isPalindrome);
+  }
 
   @override
   void dispose() {}
