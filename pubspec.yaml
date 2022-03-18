@@ -31,11 +31,6 @@ dependencies:
     sdk: flutter
   presentation:
     path: packages/presentation
-  domain:
-    path: packages/domain
-  data:
-    path: packages/data
-
 
 
 
