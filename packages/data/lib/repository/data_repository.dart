@@ -12,7 +12,7 @@ class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
   Future<bool> checkPalindrome(String text, int first, int last) async {
     try {
       final response = await _client.get(text);
-      return Mapper.call(response.data as Map<String, dynamic>);
+      return Mapper.call(response.data);
     } catch (_) {}
     return false;
   }

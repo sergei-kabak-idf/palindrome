@@ -8,7 +8,8 @@ abstract class DioBuilder {
     final baseOptional = BaseOptions(baseUrl: baseUrl);
     final client = Dio(baseOptional);
     client.interceptors.add(
-      LogInterceptor(requestHeader: false),
+      LogInterceptor(
+          request: false, responseHeader: false, requestHeader: false,),
     );
     return client;
   }
