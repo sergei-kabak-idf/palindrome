@@ -8,9 +8,10 @@ class PalindromeUseCaseImpl implements UseCase<String, Future<bool>> {
   final PalindromeRepositoryImpl _repository;
 
   @override
-  Future<bool> call(String text, int first, int last) async {
-    final response =
-        await _repository.checkPalindrome(text, first, last);
+  Future<bool> call(String text) async {
+    final response = await _repository
+        .checkPalindrome(text)
+        .then((value) => value.isPalindrome);
     return Future.value(response);
   }
 

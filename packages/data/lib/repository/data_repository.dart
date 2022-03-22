@@ -1,19 +1,17 @@
-import 'package:dio/dio.dart';
+import 'package:data/service/retrofit_api_service.dart';
+import 'package:domain/model/palindrome_response.dart';
 import 'package:domain/repository/domain_repository.dart';
+import 'package:injectable/injectable.dart';
 
-import '../mapper/mapper.dart';
-
+@injectable
 class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
-  PalindromeRepositoryImpl( this._client);
+  PalindromeRepositoryImpl(this._retrofitApiService);
 
-  final Dio _client;
+  final RetrofitApiService _retrofitApiService;
 
   @override
-  Future<bool> checkPalindrome(String text, int first, int last) async {
-    try {
-      final response = await _client.get(text);
-      return Mapper.call(response.data);
-    } catch (_) {}
-    return false;
+  Future<PalindromeResponse> checkPalindrome(String text) async {
+    final response = await _retrofitApiService.checkPalindrome(text);
+    return response;
   }
 }

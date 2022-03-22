@@ -27,9 +27,7 @@ class HomeBloc extends BlocImpl implements HomeBlocInterface {
     final String text = _screenData.inputPalindrome;
     final bool isPalindrome;
     isPalindrome = await _palindromeUseCase(
-      text,
-      0,
-      text.length,
+      text
     );
     updateState(isPalindrome, text);
   }

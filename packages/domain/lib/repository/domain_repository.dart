@@ -1,3 +1,5 @@
+import 'package:domain/model/palindrome_response.dart';
+
 abstract class PalindromeNetworkRepository {
-  Future<bool> checkPalindrome(String text, int first, int last);
+  Future<PalindromeResponse> checkPalindrome(String text);
 }

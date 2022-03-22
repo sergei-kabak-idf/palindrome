@@ -1,1 +1,1 @@
-const String baseUrl = 'https://fpwebservice.herokuapp.com/ispalindrome/';
+const String baseUrl = 'https://fpwebservice.herokuapp.com';
