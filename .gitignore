@@ -2,10 +2,11 @@
 
 # Miscellaneous
 *.class
-#*.lock
+*.lock
 *.log
 *.pyc
 *.swp
+*g.dart
 .DS_Store
 .atom/
 .buildlog/
