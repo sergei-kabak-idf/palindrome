@@ -9,7 +9,10 @@ abstract class DioBuilder {
     final client = Dio(baseOptional);
     client.interceptors.add(
       LogInterceptor(
-          request: false, responseHeader: false, requestHeader: false,),
+        request: false,
+        responseHeader: false,
+        requestHeader: false,
+      ),
     );
     return client;
   }
