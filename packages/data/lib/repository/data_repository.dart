@@ -4,7 +4,7 @@ import 'package:domain/repository/domain_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
+class PalindromeRepositoryImpl implements PalindromeDataRepository {
   PalindromeRepositoryImpl(this._retrofitApiService);
 
   final RetrofitApiService _retrofitApiService;
