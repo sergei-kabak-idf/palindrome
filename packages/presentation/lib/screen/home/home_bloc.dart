@@ -1,6 +1,7 @@
 import 'package:domain/use_case/palindrome_use_case.dart';
 import 'package:injectable/injectable.dart';
 import 'package:presentation/bloc/bloc_base.dart';
+import 'package:presentation/screen/result/result_data.dart';
 import '../result/result_page.dart';
 import 'home_data.dart';
 
@@ -31,10 +32,10 @@ class _HomeBloc extends BlocImpl implements HomeBloc {
 
   @override
   void navigateToResult() async {
-    final bool result =
-      await _palindromeUseCase(_screenData.inputPalindrome);
+    final _ = await _palindromeUseCase(_screenData.inputPalindrome);
+    final arguments = ResultArguments()..data = _.toString();
     appNavigator.push(
-      ResultPage.page(result.toString()),
+      ResultPage.page(arguments: arguments),
     );
   }
 

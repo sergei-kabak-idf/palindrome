@@ -1,6 +1,3 @@
-abstract class SettingsArguments {
-  SettingsArguments({this.data});
-
-  /// some data
-  Object? data;
+abstract class SettingsArguments<T> {
+   T? data;
 }
