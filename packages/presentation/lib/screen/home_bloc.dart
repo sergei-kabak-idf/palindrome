@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 abstract class HomeBlocInterface extends Bloc {
   @factoryMethod
   factory HomeBlocInterface(
-      PalindromeUseCaseImpl _palindromeUseCase,
+    PalindromeUseCaseImpl _palindromeUseCase,
   ) =>
       HomeBloc(_palindromeUseCase);
 
@@ -14,7 +14,6 @@ abstract class HomeBlocInterface extends Bloc {
 
   void setString(String text);
 }
-
 
 class HomeBloc extends BlocImpl implements HomeBlocInterface {
   final PalindromeUseCaseImpl _palindromeUseCase;
@@ -25,11 +24,8 @@ class HomeBloc extends BlocImpl implements HomeBlocInterface {
   @override
   void checkPalindrome() async {
     final String text = _screenData.inputPalindrome;
-    final bool isPalindrome;
-    isPalindrome = await _palindromeUseCase(
+    final String isPalindrome = await _palindromeUseCase(
       text,
-      0,
-      text.length,
     );
     updateState(isPalindrome, text);
   }

@@ -20,10 +20,10 @@ class BlocImpl implements Bloc {
   final _controllerStream = StreamController<PalindromeData>();
 
   @protected
-  void updateState(bool? isPalindrome, String? inputPalindrome) {
+  void updateState(String? outputPalindrome, String? inputPalindrome) {
     if (!_controllerStream.isClosed) {
       _blocData.call(
-          isPalindrome: isPalindrome, inputPalindrome: inputPalindrome);
+          outputPalindrome: outputPalindrome, inputPalindrome: inputPalindrome);
     }
     _controllerStream.add(_blocData);
   }

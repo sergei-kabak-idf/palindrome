@@ -38,8 +38,13 @@ class StreamPlatformStackContent extends StatelessWidget {
         body: StreamBuilder<PalindromeData>(
           stream: dataStream,
           builder:
-              (BuildContext context, snapshot) =>
-                  _inputWidget((snapshot.data?.isPalindrome).toString()),
+              (BuildContext context, snapshot) {
+            if(snapshot.data?.outputPalindrome != null) {
+              return _inputWidget(snapshot.data!.outputPalindrome);
+            } else {
+              return _inputWidget('null');
+            }
+              },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: _showButtonWidget(),

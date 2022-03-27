@@ -1,5 +1,5 @@
-abstract class Mapper {
-  static bool call(Map<String, dynamic> json) {
-    return json['isPalindrome'];
-  }
+part of 'palindrome_mapper.dart';
+
+abstract class Mapper<Input, Output> {
+  Output call(Input json);
 }

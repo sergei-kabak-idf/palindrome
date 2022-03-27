@@ -1,19 +1,21 @@
+import 'package:data/mapper/palindrome_mapper.dart';
 import 'package:dio/dio.dart';
 import 'package:domain/repository/domain_repository.dart';
+import 'package:injectable/injectable.dart';
 
-import '../mapper/mapper.dart';
-
-class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
-  PalindromeRepositoryImpl( this._client);
+@Singleton(as: PalindromeDataRepository)
+class PalindromeRepositoryImpl implements PalindromeDataRepository {
+  PalindromeRepositoryImpl(this._client, this._mapper);
 
   final Dio _client;
+  final PalindromeMapper _mapper;
 
   @override
-  Future<bool> checkPalindrome(String text, int first, int last) async {
+  Future<String> call(String text) async {
     try {
       final response = await _client.get(text);
-      return Mapper.call(response.data);
+      return _mapper(response.data);
     } catch (_) {}
-    return false;
+    return 'null';
   }
 }

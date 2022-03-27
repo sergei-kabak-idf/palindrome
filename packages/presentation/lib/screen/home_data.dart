@@ -1,16 +1,16 @@
 class PalindromeData {
-  bool isPalindrome;
+  String outputPalindrome;
   String inputPalindrome;
 
-  PalindromeData(this.isPalindrome, this.inputPalindrome);
+  PalindromeData(this.outputPalindrome, this.inputPalindrome);
 
-  factory PalindromeData.init() => PalindromeData(false, '');
+  factory PalindromeData.init() => PalindromeData('null', '');
 
   void call({
-    required bool? isPalindrome,
+    required String? outputPalindrome,
     required String? inputPalindrome,
   }) {
-    if (isPalindrome != null) this.isPalindrome = isPalindrome;
+    if (outputPalindrome != null) this.outputPalindrome = outputPalindrome;
     if (inputPalindrome != null) this.inputPalindrome = inputPalindrome;
   }
 }
