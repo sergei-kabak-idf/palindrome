@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 
 @Singleton(as: PalindromeNetworkRepository)
 class PalindromeRepositoryImpl implements PalindromeNetworkRepository {
+
   PalindromeRepositoryImpl(this._retrofitApiService);
 
   final RetrofitApiService _retrofitApiService;

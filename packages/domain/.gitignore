@@ -8,7 +8,7 @@
 .buildlog/
 .history
 .svn/
-
+*g.gart
 # IntelliJ related
 *.iml
 *.ipr
@@ -31,3 +31,4 @@ build/
 /CHANGELOG.md
 /LICENSE
 /README.md
+/lib/model/api_palindrome_response.g.dart

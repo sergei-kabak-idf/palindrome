@@ -7,7 +7,9 @@ part 'use_case.dart';
 class PalindromeUseCaseImpl implements UseCase<String, Future<bool>> {
   PalindromeUseCaseImpl(this._repository);
 
+
   final PalindromeNetworkRepository _repository;
+
 
   @override
   Future<bool> call(String text) async {
