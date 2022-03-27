@@ -1,6 +1,6 @@
-import '../repository/domain_repository.dart';
 import 'package:injectable/injectable.dart';
 
+import '../repository/domain_repository.dart';
 part 'use_case.dart';
 
 @singleton
