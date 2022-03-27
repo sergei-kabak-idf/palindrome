@@ -1,17 +1,17 @@
+import 'package:data/service/retrofit_api_service.dart';
+import 'package:domain/model/palindrome_response.dart';
 import 'package:domain/repository/domain_repository.dart';
+import 'package:injectable/injectable.dart';
 
-class PalindromeRepositoryImpl implements PalindromeRepository {
+@Injectable(as: PalindromeDataRepository)
+class PalindromeRepositoryImpl implements PalindromeDataRepository {
+  PalindromeRepositoryImpl(this._retrofitApiService);
+
+  final RetrofitApiService _retrofitApiService;
+
   @override
-  bool checkPalindrome(String text, int first, int last) {
-    if (text.isEmpty | text.contains(RegExp(r'[0-9,^\s*]'))) {
-      return false;
-    } else if (first == last - 1) {
-      return true;
-    } else if (text[first] != text[last - 1]) {
-      return false;
-    } else if (first < last - 1) {
-      return checkPalindrome(text, first + 1, last - 1);
-    }
-    return true;
+  Future<PalindromeResponse> checkPalindrome(String text) async {
+    final response = await _retrofitApiService.checkPalindrome(text);
+    return response;
   }
 }

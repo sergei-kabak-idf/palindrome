@@ -1,3 +1,5 @@
-abstract class PalindromeRepository {
-  bool checkPalindrome(String text, int first, int last);
+import 'package:domain/model/palindrome_response.dart';
+
+abstract class PalindromeDataRepository {
+  Future<PalindromeResponse> checkPalindrome(String text);
 }

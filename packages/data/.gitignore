@@ -30,3 +30,4 @@ CHANGELOG.md
 README.md
 LICENSE
 build/
+*.g.dart

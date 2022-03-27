@@ -7,7 +7,7 @@ import 'package:presentation/di/injector.dart';
 final getIt = GetIt.I;
 
 @InjectableInit()
-void configureDependencies() {
+Future<void> configureDependencies() async {
   configureDataDependencies(getIt);
   configureDomainDependencies(getIt);
   configurePresentationDependencies(getIt);
