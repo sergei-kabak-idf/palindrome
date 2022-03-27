@@ -1,7 +1,9 @@
 import '../repository/domain_repository.dart';
+import 'package:injectable/injectable.dart';
 
 part 'use_case.dart';
 
+@singleton
 class PalindromeUseCaseImpl implements UseCase<String, Future<bool>> {
   PalindromeUseCaseImpl(this._repository);
 
