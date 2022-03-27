@@ -15,9 +15,6 @@ dependencies:
   injectable: ^1.5.3
   json_serializable: ^6.1.5
 
-  data:
-    path: ../data
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

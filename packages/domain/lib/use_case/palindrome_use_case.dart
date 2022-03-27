@@ -2,10 +2,13 @@ import '../repository/domain_repository.dart';
 
 part 'use_case.dart';
 
+@singleton
 class PalindromeUseCaseImpl implements UseCase<String, Future<bool>> {
   PalindromeUseCaseImpl(this._repository);
 
+
   final PalindromeNetworkRepository _repository;
+
 
   @override
   Future<bool> call(String text) async {

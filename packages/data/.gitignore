@@ -30,4 +30,4 @@ CHANGELOG.md
 README.md
 LICENSE
 build/
-/lib/service/retrofit_api_service.g.dart
+*.g.dart
